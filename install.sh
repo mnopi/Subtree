@@ -73,19 +73,19 @@ fi
 # is prl_disp_service running?
 if ! pgrep -x "prl_disp_service" > /dev/null; then
   echo -e "${COLOR_INFO}[*] Start Parallels Service${NOCOLOR}"
-  "${PDFM_DIR}/Contents/MacOS/Parallels Service" service_start >/dev/null 2>$1
+  "${PDFM_DIR}/Contents/MacOS/Parallels Service" service_start 2>&1>/dev/null
 fi
 
 echo -e "${COLOR_INFO}[*] Exit Parallels Desktop account ...${NOCOLOR}"
-"${PDFM_DIR}/Contents/MacOS/prlsrvctl" web-portal signout >/dev/null 2>$1
+"${PDFM_DIR}/Contents/MacOS/prlsrvctl" web-portal signout 2>&1>/dev/null
 
 echo -e "${COLOR_INFO}[*] Disable CEP ...${NOCOLOR}"
-"${PDFM_DIR}/Contents/MacOS/prlsrvctl" set --cep off >/dev/null 2>$1
-"${PDFM_DIR}/Contents/MacOS/prlsrvctl" set --allow-attach-screenshots off >/dev/null 2>$1
+"${PDFM_DIR}/Contents/MacOS/prlsrvctl" set --cep off 2>&1>/dev/null
+"${PDFM_DIR}/Contents/MacOS/prlsrvctl" set --allow-attach-screenshots off 2>&1>/dev/null
 
 echo -e "${COLOR_INFO}[*] Exit Parallels Desktop${NOCOLOR}"
-"${PDFM_DIR}/Contents/MacOS/Parallels Service" service_stop >/dev/null 2>$1
-killall prl_client_app >/dev/null 2>$1
+"${PDFM_DIR}/Contents/MacOS/Parallels Service" service_stop 2>&1>/dev/null
+killall prl_client_app >/dev/null 2>&1
 
 echo -e "${COLOR_INFO}[*] Copy prl_disp_service${NOCOLOR}"
 
