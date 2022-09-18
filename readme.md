@@ -11,7 +11,7 @@ Crack for Parallels Desktop
 
 1. Install Parallels Desktop.
 
-    https://www.parallels.com/products/desktop/download/
+    https://download.parallels.com/desktop/v18/18.0.2-53077/ParallelsDesktop-18.0.2-53077.dmg
 
 2. Exit parallels account.
 
