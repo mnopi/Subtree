@@ -1,6 +1,6 @@
 # Parallels Desktop Crack
 
-Crack for Parallels Desktop
+Crack for Parallels Desktop 18.0.2 53077
 
 - [x] Support Intel
 - [x] Support Apple Silicon (M1 & M2)
