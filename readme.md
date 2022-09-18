@@ -80,6 +80,12 @@ You can use a firewall, hosts or custom DNS block there domains.
 127.0.0.1 desktop.parallels.com.cdn.cloudflare.net
 127.0.0.1 www.parallels.cn
 127.0.0.1 www.parallels.com
+127.0.0.1 www.parallels.de
+127.0.0.1 www.parallels.es
+127.0.0.1 www.parallels.fr
+127.0.0.1 www.parallels.nl
+127.0.0.1 www.parallels.ru
+127.0.0.1 www.parallelskorea.com
 127.0.0.1 reportus.parallels.com
 127.0.0.1 parallels.com
 127.0.0.1 parallels.cn
@@ -103,6 +109,12 @@ Add the following rules to your `Custom filtering rules`:
 ||myparallels.com^$important
 ||parallels.cn^$important
 ||parallels.com^$important
+||parallels.de^$important
+||parallels.es^$important
+||parallels.fr^$important
+||parallels.nl^$important
+||parallels.ru^$important
+||parallelskorea.com^$important
 ||parallels.com.cdn.cloudflare.net^$important
 ```
 
