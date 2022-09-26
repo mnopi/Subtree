@@ -69,6 +69,13 @@ Parallels Desktop may upload client info or logs to server.
 
 You can use a firewall, hosts or custom DNS block there domains.
 
+This prevents the built-in downloader from working, but you can download prebuilt Virtual Machines via
+* Apple Silicon
+    * https://update.parallels.com/desktop/v18/appliances_arm.xml
+    * https://update.parallels.com/desktop/v18/appliances_arm_Monterey.xml
+* Intel
+    * https://update.parallels.com/desktop/v18/appliances.xml
+
 ## Hosts
 
 ```
