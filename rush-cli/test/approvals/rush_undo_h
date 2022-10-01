@@ -1,0 +1,25 @@
+rush undo
+
+  Uninstall a package
+  This command runs the undo script in the package directory.
+
+Alias: u
+
+Usage:
+  rush undo PACKAGE
+  rush undo --help | -h
+
+Options:
+  --help, -h
+    Show this help
+
+Arguments:
+  PACKAGE
+    Package name.
+    This can either be the package name without the repository name (in
+    this case, the default repository will be used) or in the form of
+    'repo:package'.
+
+Examples:
+  rush undo ruby
+  rush undo centos:ruby

@@ -1,0 +1,34 @@
+rush get
+
+  Install a package
+  This command runs the main script in the package directory.
+  
+  This is the default command, which means that running 'rush package' is
+  the same as running 'rush get package'.
+
+Alias: g
+
+Usage:
+  rush get PACKAGE [options]
+  rush get --help | -h
+
+Options:
+  --help, -h
+    Show this help
+
+  --clone, -c
+    Clone the repository if it is not found locally.
+    This flag will look for a GitHub user with the same name as the
+    repository, and attempt to clone their rush-repo repository.
+
+Arguments:
+  PACKAGE
+    Package name.
+    This can either be the package name without the repository name (in
+    this case, the default repository will be used) or in the form of
+    'repo:package'.
+
+Examples:
+  rush ruby
+  rush get ruby
+  rush get centos:ruby

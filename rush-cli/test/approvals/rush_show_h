@@ -1,0 +1,19 @@
+rush show - Show package files
+
+Usage:
+  rush show PACKAGE [FILE]
+  rush show --help | -h
+
+Options:
+  --help, -h
+    Show this help
+
+Arguments:
+  PACKAGE
+    Package name.
+    This can either be the package name without the repository name (in
+    this case, the default repository will be used) or in the form of
+    'repo:package'.
+
+  FILE
+    File to show (show all if not specified).

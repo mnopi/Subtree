@@ -1,0 +1,25 @@
+rush remove
+
+  Unregister a local repository
+  This command removes the specified path to the configuration file.
+
+Alias: r
+
+Usage:
+  rush remove REPO [options]
+  rush remove --help | -h
+
+Options:
+  --help, -h
+    Show this help
+
+  --purge, -p
+    Also remove the local repository's directory.
+
+Arguments:
+  REPO
+    Repository name.
+
+Examples:
+  rush remove bobby
+  rush remove bobby --purge

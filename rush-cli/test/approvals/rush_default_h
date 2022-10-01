@@ -1,0 +1,20 @@
+rush default
+
+  Set a default repository
+  This command adds (or updates) a repository named 'default' to the
+  configuration file, and copies the path from the provided repo.
+
+Usage:
+  rush default REPO
+  rush default --help | -h
+
+Options:
+  --help, -h
+    Show this help
+
+Arguments:
+  REPO
+    Repository name.
+
+Examples:
+  rush default sample

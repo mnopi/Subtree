@@ -1,0 +1,24 @@
+rush add
+
+  Register a local repository
+  This command adds the specified path to the configuration file.
+
+Alias: a
+
+Usage:
+  rush add REPO PATH
+  rush add --help | -h
+
+Options:
+  --help, -h
+    Show this help
+
+Arguments:
+  REPO
+    Repository name.
+
+  PATH
+    Path to the repository.
+
+Examples:
+  rush add default ~/rush-repos/default

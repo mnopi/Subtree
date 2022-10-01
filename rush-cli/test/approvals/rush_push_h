@@ -1,0 +1,23 @@
+rush push - Git push one or all repositories
+
+Alias: upload
+
+Usage:
+  rush push [REPO] [options]
+  rush push --help | -h
+
+Options:
+  --help, -h
+    Show this help
+
+  --all, -a
+    Push all repositories.
+
+  --message, -m TEXT
+    Commit message.
+    Default: automatic commit
+
+Arguments:
+  REPO
+    Repository name.
+    Default: default

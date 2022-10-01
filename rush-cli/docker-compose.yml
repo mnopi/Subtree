@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  bash: &default
+    build: .
+    image: dannyben/rush-cli
+    volumes: 
+    - ./rush:/usr/local/bin/rush
+    - ./test:/test
+    - ./sample-repo:/root/rush-repos/sample-repo
+
+  test: &test
+    <<: *default
+    command: bash approve
+
+  ci:
+    <<: *test
+    volumes: []
+

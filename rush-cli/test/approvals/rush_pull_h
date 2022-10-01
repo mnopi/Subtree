@@ -1,0 +1,15 @@
+rush pull - Git pull one or all repositories
+
+Alias: p, download, update
+
+Usage:
+  rush pull [REPO]
+  rush pull --help | -h
+
+Options:
+  --help, -h
+    Show this help
+
+Arguments:
+  REPO
+    Repository name.
