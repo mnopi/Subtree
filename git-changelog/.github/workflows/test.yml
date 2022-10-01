@@ -1,0 +1,33 @@
+name: Test
+on:
+  pull_request:
+  push: { branches: master }
+
+jobs:
+  test:
+    name: Run test suite
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install test dependencies
+      run: sudo apt install faketime
+
+    - name: Install opcode
+      run: bash <(curl -Ls get.dannyb.co/opcode/setup)
+
+    - name: Initialize git user
+      run: |
+        git config --global user.email "tester@approvals.com"
+        git config --global user.name "Approvals Tester"
+
+    - name: Run shellcheck tests
+      run: shellcheck git-changelog
+
+    - name: Initialize test repo
+      run: op sample-init
+
+    - name: Run approval tests
+      run: op test

@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+export APPROVALS_DIR=$PWD/test/approvals
+PATH="$PWD:$PATH"
+pushd test/sample-repo > /dev/null
+source "../approvals.bash"
+
+function cleanup {
+  git tag --delete v9.9.9 &> /dev/null
+}
+
+trap cleanup EXIT
+
+describe "--help"
+  approve "git-changelog --help"
+
+describe "--help in a folder that is not a git repo"
+  pushd /tmp > /dev/null
+  approve "git-changelog --help" git_changelog_help
+  popd > /dev/null
+
+describe "changelog"
+  approve "git-changelog"
+
+describe "-1"
+  approve "git-changelog -1"
+
+describe "-2"
+  approve "git-changelog -2"
+
+describe "--tail N"
+  approve "git-changelog --tail 2"
+
+describe "--tail N when there are no unreleased commis"
+  git tag v9.9.9 &> /dev/null
+  approve "git-changelog --tail 2" tail_with_no_loose_ends
+  git tag --delete v9.9.9 &> /dev/null
+
+describe "--color OPTION"
+  approve "git-changelog --color off"
+
+describe "--reverse"
+  approve "git-changelog --reverse"
+  approve "git-changelog --reverse --tail 2"
+
+describe "--out PATH"
+  rm -f out.md
+  git-changelog --out out.md
+  approve "cat out.md"
+  rm -f out.md
+
+describe "--save"
+  rm -f CHANGELOG.md
+  git-changelog --save
+  approve "cat CHANGELOG.md"
+  rm -f CHANGELOG.md
+
+describe "in a folder that is not a git repo"
+  pushd /tmp > /dev/null
+  approve "git-changelog" non_repo
+  popd > /dev/null
+
+describe "in a repo without tags"
+  mkdir -p /tmp/git-changelog-test
+  pushd /tmp/git-changelog-test > /dev/null
+  git init
+  approve "git-changelog" no_tags
+  popd > /dev/null
+  rm -rf /tmp/git-changelog-test
+
+blue PASS ALL
+popd > /dev/null

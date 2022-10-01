@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+echo "=== Saving executable to /usr/local/bin/git-changelog"
+CURL_COMMAND="curl -s https://raw.githubusercontent.com/DannyBen/git-changelog/master/git-changelog > /usr/local/bin/git-changelog"
+if [[ $EUID -ne 0 ]]; then
+  sudo bash -c "$CURL_COMMAND"
+  sudo chmod a+x /usr/local/bin/git-changelog
+else
+  bash -c "$CURL_COMMAND"
+  chmod a+x /usr/local/bin/git-changelog
+fi
+
+echo "=== Saving manpage at /usr/local/share/man/man1/git-changelog.1"
+CURL_COMMAND="curl -s https://raw.githubusercontent.com/DannyBen/git-changelog/master/doc/git-changelog.1 > /usr/local/share/man/man1/git-changelog.1"
+if [[ $EUID -ne 0 ]]; then
+  sudo bash -c "$CURL_COMMAND"
+else
+  bash -c "$CURL_COMMAND"
+fi
+
+if type git-changelog > /dev/null; then
+  echo "=== Done. Type 'git changelog --help' for more info."
+
+else
+  echo "=== Setup failed."
+  exit 1
+fi
