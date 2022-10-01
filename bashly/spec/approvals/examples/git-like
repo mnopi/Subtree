@@ -1,0 +1,82 @@
++ bashly generate
+creating user files in src
+created src/initialize.sh
+created src/status_command.sh
+created src/commit_command.sh
+created ./git
+run ./git --help to test your bash script
++ ./git
+git - Git example
+
+Usage:
+  git COMMAND
+  git [COMMAND] --help | -h
+  git --version | -v
+
+Commands:
+  status   Show repository status
+  commit   Commit changes
+
++ ./git -h
+git - Git example
+
+Usage:
+  git COMMAND
+  git [COMMAND] --help | -h
+  git --version | -v
+
+Commands:
+  status   Show repository status
+  commit   Commit changes
+
+Options:
+  --help, -h
+    Show this help
+
+  --version, -v
+    Show version number
+
++ ./git s
+# this file is located in 'src/status_command.sh'
+# code for 'git status' goes here
+# you can edit it freely and regenerate (it will not be overwritten)
+args: none
++ ./git status -h
+git status - Show repository status
+
+Alias: s*
+
+Usage:
+  git status
+  git status --help | -h
+
+Options:
+  --help, -h
+    Show this help
+
++ ./git commit -h
+git commit - Commit changes
+
+Alias: c*
+
+Usage:
+  git commit [OPTIONS]
+  git commit --help | -h
+
+Options:
+  --help, -h
+    Show this help
+
+  --message, -m MESSAGE
+    Commit message
+
+  --all, -a
+    Automatically stage files
+
++ ./git commit -a -m 'initial commit'
+# this file is located in 'src/commit_command.sh'
+# code for 'git commit' goes here
+# you can edit it freely and regenerate (it will not be overwritten)
+args:
+- ${args[--all]} = 1
+- ${args[--message]} = initial commit

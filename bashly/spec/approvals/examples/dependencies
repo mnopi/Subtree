@@ -1,0 +1,14 @@
++ bashly generate
+creating user files in src
+skipped src/initialize.sh (exists)
+skipped src/download_command.sh (exists)
+skipped src/upload_command.sh (exists)
+created ./cli
+run ./cli --help to test your bash script
++ ./cli download
+missing dependency: shmurl
++ ./cli upload
+# this file is located in 'src/upload_command.sh'
+# code for 'cli upload' goes here
+# you can edit it freely and regenerate (it will not be overwritten)
+args: none

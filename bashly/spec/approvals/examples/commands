@@ -1,0 +1,118 @@
++ bashly generate
+creating user files in src
+created src/initialize.sh
+created src/download_command.sh
+created src/upload_command.sh
+created ./cli
+run ./cli --help to test your bash script
++ ./cli
+cli - Sample application
+
+Usage:
+  cli COMMAND
+  cli [COMMAND] --help | -h
+  cli --version | -v
+
+Commands:
+  download   Download a file
+  upload     Upload a file
+
++ ./cli -h
+cli - Sample application
+
+Usage:
+  cli COMMAND
+  cli [COMMAND] --help | -h
+  cli --version | -v
+
+Commands:
+  download   Download a file
+  upload     Upload a file
+
+Options:
+  --help, -h
+    Show this help
+
+  --version, -v
+    Show version number
+
+Environment Variables:
+  API_KEY
+    Set your API key
+
++ ./cli --version
+0.1.0
++ ./cli download -h
+cli download - Download a file
+
+Alias: d
+
+Usage:
+  cli download SOURCE [TARGET] [OPTIONS]
+  cli download --help | -h
+
+Options:
+  --help, -h
+    Show this help
+
+  --force, -f
+    Overwrite existing files
+
+Arguments:
+  SOURCE
+    URL to download from
+
+  TARGET
+    Target filename (default: same as source)
+
+Environment Variables:
+  DEFAULT_TARGET_LOCATION
+    Set the default location to download to
+
+Examples:
+  cli download example.com
+  cli download example.com ./output -f
+
++ ./cli download
+missing required argument: SOURCE
+usage: cli download SOURCE [TARGET] [OPTIONS]
++ ./cli download sourcefile targetfile -f
+# this file is located in 'src/download_command.sh'
+# code for 'cli download' goes here
+# you can edit it freely and regenerate (it will not be overwritten)
+args:
+- ${args[--force]} = 1
+- ${args[source]} = sourcefile
+- ${args[target]} = targetfile
++ ./cli upload --help
+cli upload - Upload a file
+
+Alias: u
+
+Usage:
+  cli upload SOURCE [OPTIONS]
+  cli upload --help | -h
+
+Options:
+  --help, -h
+    Show this help
+
+  --user, -u USER (required)
+    Username to use for logging in
+
+  --password, -p PASSWORD
+    Password to use for logging in
+
+Arguments:
+  SOURCE
+    File to upload
+
++ ./cli upload sourcefile
+missing required flag: --user, -u USER
++ ./cli upload sourcefile -u username
+# this file is located in 'src/upload_command.sh'
+# code for 'cli upload' goes here
+# you can edit it freely and regenerate (it will not be overwritten)
+args:
+- ${args[source]} = sourcefile
+- ${args[--user]} = username

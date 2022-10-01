@@ -1,0 +1,15 @@
++ bundle exec bashly generate
+creating user files in src
+created src/initialize.sh
+created src/config_command.sh
+created src/get_command.sh
+created ./rush
+run ./rush --help to test your bash script
++ ./rush c
+# this file is located in 'src/config_command.sh'
+# code for 'rush config' goes here
+# you can edit it freely and regenerate (it will not be overwritten)
+args: none
++ ./rush g
+missing required argument: REPO
+usage: rush get REPO

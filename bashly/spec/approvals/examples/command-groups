@@ -1,0 +1,53 @@
++ bashly generate
+creating user files in src
+created src/initialize.sh
+created src/download_command.sh
+created src/upload_command.sh
+created src/login_command.sh
+created src/logout_command.sh
+created ./ftp
+run ./ftp --help to test your bash script
++ ./ftp
+ftp - Sample application with command grouping
+
+Usage:
+  ftp COMMAND
+  ftp [COMMAND] --help | -h
+  ftp --version | -v
+
+File Commands:
+  download   Download a file
+  upload     Upload a file
+
+Login Commands:
+  login      Write login credentials to the config file
+  logout     Delete login credentials to the config file
+
++ ./ftp -h
+ftp - Sample application with command grouping
+
+Usage:
+  ftp COMMAND
+  ftp [COMMAND] --help | -h
+  ftp --version | -v
+
+File Commands:
+  download   Download a file
+  upload     Upload a file
+
+Login Commands:
+  login      Write login credentials to the config file
+  logout     Delete login credentials to the config file
+
+Options:
+  --help, -h
+    Show this help
+
+  --version, -v
+    Show version number
+
++ ./ftp login
+# this file is located in 'src/login_command.sh'
+# code for 'ftp login' goes here
+# you can edit it freely and regenerate (it will not be overwritten)
+args: none

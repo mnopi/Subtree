@@ -1,0 +1,18 @@
+name: cli
+help: Sample application that requires dependencies
+version: 0.1.0
+
+commands:
+- name: download
+  help: Download something
+
+  # By defining dependencies, the generated script will be halted (with a
+  # friendly error message) unless all of these commands exist in the host
+  # system.
+  dependencies:
+  - git
+  - curl
+  - shmurl
+
+- name: upload
+  help: Upload something
