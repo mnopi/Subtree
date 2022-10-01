@@ -1,0 +1,73 @@
+ftp:
+- compline: "ftp "
+  expected: [download, list, upload]
+
+- compline: "ftp -"
+  expected: [--help, --version]
+
+- compline: "ftp downl"
+  expected: [download]
+
+- compline: "ftp download "
+  expected: [another-dir, dir with spaces, dummy-dir, file with spaces.txt, ftp.yaml, gradual.yaml]
+
+- compline: "ftp download -"
+  expected: [--help, --override]
+
+- compline: "ftp upload "
+  expected: [another-dir, dir with spaces, dummy-dir]
+
+- compline: "ftp upload -"
+  expected: [--confirm, --help]
+
+- compline: "ftp connect ssh -"
+  expected: [--keyfile]
+
+- compline: "ftp connect --protocol "
+  expected: [scp, sftp]
+
+- compline: "/anything/goes/ftp list -"
+  expected: [--help, --short]
+
+gradual:
+- compline: "cli "
+  expected: [command, conquer]
+
+- compline: "cli co"
+  expected: [command, conquer]
+
+- compline: "cli command "
+  expected: [childcommand, subcommand]
+
+- compline: "cli command sub"
+  expected: [subcommand]
+
+- compline: "cli command subcommand "
+  expected: [help]
+
+- compline: "cli command subcommand -"
+  expected: [--color, --force, -c]
+
+- compline: "cli command subcommand --"
+  expected: [--color, --force]
+
+- compline: "cli command subcommand --color "
+  expected: [blue, gray, green, red]
+
+- compline: "cli command subcommand --color gr"
+  expected: [gray, green]
+
+- compline: "cli command subcommand --force --color "
+  expected: [blue, gray, green, red]
+
+- compline: "cli command subcommand --force --color gr"
+  expected: [gray, green]
+
+- compline: "cli command subcommand --color green --"
+  expected: [--color, --force]
+
+- compline: "cli command subcommand -c "
+  expected: [blue, red]
+
+- compline: "cli command subcommand anything --color gr"
+  expected: [gray, green]

@@ -1,0 +1,36 @@
+Test completions
+
+This command can be used to test that your completions script responds with the
+right completions. It works by reading your completely.yaml file, generating a
+completions script, and generating a temporary testing script.
+
+Usage:
+  completely test [--keep] COMPLINE
+  completely test (-h|--help)
+
+Options:
+  -k --keep
+    Keep the temporary testing script in the current directory
+
+  -h --help
+    Show this help
+
+Parameters:
+  COMPLINE
+    The command to test completions for. This will be handled as if a TAB was
+    pressed immediately at the end of it, so the last word is considered the
+    active cursor. If you wish to complete for the next word instead, end your
+    command with a space.
+
+Environment Variables:
+  COMPLETELY_CONFIG_PATH
+    Path to a completely configuration file [default: completely.yaml]
+
+  COMPLETELY_DEBUG
+    It not empty, the generated script will include an additional debugging
+    snippet that outputs the compline and current word to a text file when a
+    completion is requested
+
+Examples:
+  completely test "mygit pu"
+  completely test "mygit pull "
