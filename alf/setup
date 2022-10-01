@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Figure out if we need sudo or not
+sudo=''
+if [[ $EUID -ne 0 ]]; then
+  sudo='sudo'
+fi
+
+# Download script from Github
+echo "=== Saving executable to /usr/local/bin/alf"
+curl_command="curl -s https://raw.githubusercontent.com/DannyBen/alf/master/alf > /usr/local/bin/alf"
+$sudo bash -c "$curl_command"
+$sudo chmod a+x /usr/local/bin/alf
+
+# Verify
+if type alf > /dev/null; then
+  echo "=== Done. Type 'alf --help' for more info."
+else
+  echo "=== Setup failed."
+  exit 1
+fi
