@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+apt_uninstall nnn
+rm -f ~/.bashrc.d/nnn.bashrc

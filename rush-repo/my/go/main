@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+source ../../common.sh
+
+needs go
+
+say "symlinking ~/go => /store/go"
+[[ -d $HOME/go ]] || ln -s /store/go "$HOME/go"

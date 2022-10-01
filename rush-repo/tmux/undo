@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -x
+
+source ../common.sh
+
+say "uninstalling tmux"
+sudo apt-get remove -y tmux
+rm ~/.tmux.conf
+rm ~/.bashrc.d/tmux.bashrc
+rm -rf ~/.tmux

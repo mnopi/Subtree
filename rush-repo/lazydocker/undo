@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+uninstall_bin lazydocker
+rm -f ~/.config/jesseduffield/lazydocker/config.yml
+(rmdir ~/.config/jesseduffield/lazydocker 2> /dev/null) || true
+(rmdir ~/.config/jesseduffield 2> /dev/null) || true

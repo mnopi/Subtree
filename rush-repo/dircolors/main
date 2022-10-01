@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+source ../common.sh
+say "copying ~/.dircolors"
+cp .dircolors ~/.dircolors

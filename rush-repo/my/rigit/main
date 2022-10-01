@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+source ../../common.sh
+say "copying rigit.bashrc"
+cp rigit.bashrc "$HOME/.bashrc.d/rigit.bashrc"

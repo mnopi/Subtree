@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+source ../../common.sh
+
+needs python
+
+say "installing termtosvg (pip)"
+sudo python3 -m pip install --upgrade termtosvg
+termtosvg -h | head -n2

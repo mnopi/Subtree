@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+source ../../common.sh
+
+discard pup recode
+uninstall_bin tuxi

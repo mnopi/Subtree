@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+install_function() {
+  apt_install_deb "https://github.com/rs/curlie/releases/download/v$version/curlie_${version}_linux_amd64.deb"
+}
+
+github_install_helper curlie rs/curlie version

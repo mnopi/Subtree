@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+uninstall_bin ngrok
+rm ~/.ngrok2/ngrok.yml

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+install_function() {
+  download_url="https://github.com/allcloud-io/clisso/releases/download/${version}/clisso-linux-amd64.zip"
+  wget --no-verbose -O clisso.zip "$download_url"
+  
+  sudo unzip -o clisso.zip -d /usr/local/bin/
+  rm clisso.zip
+
+  sudo mv /usr/local/bin/clisso-linux-amd64 /usr/local/bin/clisso
+}
+
+needs unzip
+github_install_helper clisso "allcloud-io/clisso" "version"

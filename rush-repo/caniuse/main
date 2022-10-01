@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+needs yarn
+
+say "installing caniuse-cmd (yarn)"
+yarn global add caniuse-cmd
+say "caniuse installation complete"
+say "you may need to restart your session"
+

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+if command_exist svg-term ; then
+  say "svg-term is already installed"
+
+else
+  needs yarn asciinema
+
+  say "installing svg-term-cli (yarn)"
+  yarn global add svg-term-cli
+
+fi

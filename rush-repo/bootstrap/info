@@ -1,0 +1,11 @@
+A meta package executing several configuration packages
+
+Running this will install:
+
+- bashrc
+- dircolors
+- exrc
+- inputrc
+- irbrc
+- alf
+

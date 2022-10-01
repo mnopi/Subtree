@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+say "installing ncdu (apt)"
+sudo apt install -y ncdu

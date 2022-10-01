@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+say "uninstalling docker app"
+rm -f ~/.docker/cli-plugins/docker-app
+rm -rf ~/.docker/app
+rm -f ~/.bashrc.d/docker-app.bashrc
+(rmdir ~/.docker/cli-plugins 2> /dev/null) || true

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+say "uninstalling opcode"
+sudo rm -f /usr/local/bin/op
+sudo rm -f /usr/share/bash-completion/completions/op
+rm -f ~/.bashrc.d/opcode.bashrc  # from old installation, if any

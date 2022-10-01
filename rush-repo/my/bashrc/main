@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+source ../../common.sh
+
+needs bashrc
+
+say "copying ~/.bashrc.d/global.bashrc"
+cp global.bashrc "$HOME/.bashrc.d/global.bashrc"

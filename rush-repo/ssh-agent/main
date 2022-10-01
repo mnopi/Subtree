@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+needs bashrc keychain
+
+say "copying ssh-agent.bashrc"
+cp ssh-agent.bashrc ~/.bashrc.d/

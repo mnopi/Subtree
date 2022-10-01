@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+needs python
+
+say "installing shopify themekit (install script)"
+curl -s https://shopify.github.io/themekit/scripts/install.py | sudo python
+theme version

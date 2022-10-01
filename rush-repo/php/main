@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+source ../common.sh
+apt_install php7.4-cli php

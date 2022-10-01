@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+source ../../common.sh
+
+needs gitconfig
+
+say "applying personal git configuration"
+git config --global user.name "Danny Ben Shitrit"
+git config --global user.email db@dannyben.com

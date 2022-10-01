@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+needs bashrc
+
+say "installing lazy-cd (github)"
+wget -qO ~/.bashrc.d/lcd.bashrc https://raw.githubusercontent.com/pedramamini/lazy-cd/master/lcd.sh
+

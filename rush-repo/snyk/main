@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+install_function() {
+  sudo curl -L "https://github.com/snyk/snyk/releases/download/v$version/snyk-linux" -o /usr/local/bin/snyk
+  sudo chmod +x /usr/local/bin/snyk
+}
+
+github_install_helper snyk "snyk/snyk"
+
+if [[ -z "$SNYK_TOKEN" ]]; then
+  attention "the environamnt variable SNYK_TOKEN is not set"
+  attention "get your token from https://app.snyk.io/account"
+fi

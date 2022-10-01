@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+source ../common.sh
+say "installing iftop (apt)"
+sudo apt install -y iftop

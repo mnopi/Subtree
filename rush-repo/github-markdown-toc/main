@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+install_function() {
+  sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc
+  sudo chmod +x /usr/local/bin/gh-md-toc
+}
+
+github_install_helper gh-md-toc "ekalinin/github-markdown-toc"

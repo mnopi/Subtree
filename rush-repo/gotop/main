@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+install_function() {
+  url="https://github.com/xxxserxxx/gotop/releases/download/v$version/gotop_v${version}_linux_amd64.tgz"
+  curl -L "$url" | tar xvz "gotop"
+
+  sudo install -m 755 gotop /usr/local/bin/gotop
+  rm gotop
+
+  mkdir -p ~/.config/gotop/
+  cp gotop.conf ~/.config/gotop/
+}
+
+github_install_helper gotop "xxxserxxx/gotop"

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+install_function() {
+  curl -# -L "https://github.com/rancher/k3s/releases/download/v$version/k3s" >/tmp/k3s
+  chmod +x /tmp/k3s
+  sudo mv /tmp/k3s /usr/local/bin/k3s
+}
+
+github_install_helper k3s "rancher/k3s"

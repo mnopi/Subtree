@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+source ../common.sh
+
+uninstall_bin ipfs
+if [[ -d ~/.ipfs ]]; then
+  attention "for a complete cleanup, also run 'rm -rf ~/.ipfs'"
+fi
