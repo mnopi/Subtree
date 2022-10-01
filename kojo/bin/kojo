@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+require 'kojo'
+require 'kojo/cli'
+require 'colsole'
+include Colsole
+
+runner = Kojo::CLI.runner
+
+begin
+  exit runner.run ARGV
+rescue Kojo::Interrupt
+  say! "\nGoodbye"
+  exit 1  
+rescue => e
+  puts e.backtrace.reverse if ENV['DEBUG']
+  say! "!undred!#{e.class}!txtrst!\n#{e.message}"
+  exit 1
+end

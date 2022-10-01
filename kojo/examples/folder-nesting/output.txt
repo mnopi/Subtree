@@ -1,0 +1,8 @@
++ kojo file main.yml
+services:
+  app:
+    - did it work?
+    - it did work!
+
+loopback:
+  - indeed-ee-oh

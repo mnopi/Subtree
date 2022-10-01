@@ -1,0 +1,4 @@
++ kojo file main.yml domain=example.com scale=2
+services:
+  domain: example.com
+  scale: 2

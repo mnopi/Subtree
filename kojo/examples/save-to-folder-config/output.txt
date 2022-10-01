@@ -1,0 +1,3 @@
++ kojo config config.yml --save result
+Saved result/small-app.yml
+Saved result/big-app.yml

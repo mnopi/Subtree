@@ -1,0 +1,7 @@
+Commands:
+  file    Transform a file from a template
+  dir     Transform a folder of templates to a similar output folder
+  config  Transform based on instructions from a config file
+  single  Transform using a single file that contains the instructions
+  form    Fill a template form interactively
+  tojson  Convert one or more YAML files to JSON

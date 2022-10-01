@@ -1,0 +1,76 @@
+require "runfile-tasks"
+require "byebug"
+require 'colsole'
+require 'kojo'
+require 'kojo/version'
+include Colsole
+
+title   "Kojo Developer Toolbelt"
+summary "Runfile tasks for building the Kojo gem"
+version Kojo::VERSION
+
+RunfileTasks::RubyGems.all 'kojo'
+RunfileTasks::Testing.rspec
+
+help   "Run interactive console"
+action :console, :c do
+  exec "bundle exec bin/console"
+end
+
+help   "Generate changelog and append old changelog"
+action :changelog do
+  system "git changelog --save"
+  # fix typos
+  File.write 'CHANGELOG.md', File.read('CHANGELOG.md').gsub(' jaon ', ' json ')
+  # append older changelog (prior to switching to git-changelog)
+  system "cat support/changelog.old.md >> CHANGELOG.md"
+end
+
+help "Generate example output files"
+action :examples do
+  say_status :invoke, 'examples'
+
+  dirs = Dir['examples/*'].select { |f| File.directory? f }
+
+  dirs.each do |folder|
+    say_status :process, folder
+
+    Dir.chdir folder do
+      if File.exist? 'runme'
+        system "./runme > output.txt 2>&1"
+      end
+    end
+  end
+  say_status :done, ''
+end
+
+command :docker
+
+help   "Build the docker images"
+action :build, :b do
+  system "docker build -t dannyben/kojo ."
+  system "docker tag dannyben/kojo dannyben/kojo:#{Kojo::VERSION}"
+  system "docker images |grep kojo"
+end
+
+help   "Smoke test the docker image"
+action :test, :t do
+  kojo_version = `docker run --rm dannyben/kojo --version`.chomp
+  if kojo_version != Kojo::VERSION
+    say "!txtred!FAIL: docker kojo version is #{kojo_version}, expected #{Kojo::VERSION}"
+    exit 1
+  else
+    say "!txtgrn!PASS: docker kojo version is #{kojo_version}"
+  end
+end
+
+help   "Push the docker images to Docker Hub (since autobuilds are only for the rich and famous...)"
+action :push, :p do
+  system "docker push dannyben/kojo"
+  system "docker push dannyben/kojo:#{Kojo::VERSION}"
+end
+
+endcommand
+
+
+require './debug.rb' if File.exist? 'debug.rb'

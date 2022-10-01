@@ -1,0 +1,5 @@
+app-one:
+  environment: %{env}
+
+app-two:
+  environment: %{env}
