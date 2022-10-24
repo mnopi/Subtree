@@ -25,6 +25,10 @@ If you got "Operation not permitted" error, enable "Full Disk Access" permission
 
 `System Preferences ▸ Security & Privacy ▸ Privacy ▸ Full Disk Access`
 
+If you got `codesign` error, ensure xcode command line tools installed. Install with command `xcode-select --install`.
+
+Check installed with `xcode-select -p` will output `/Library/Developer/CommandLineTools` or `/Applications/Xcode.app/Contents/Developer`.
+
 
 # Manual
 
