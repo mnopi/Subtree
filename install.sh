@@ -11,7 +11,7 @@ NOCOLOR='\033[0m'
 
 PDFM_DIR="/Applications/Parallels Desktop.app"
 PDFM_LOC="/Library/Preferences/Parallels/parallels-desktop.loc"
-PDFM_VER="18.0.3-53079"
+PDFM_VER="18.1.0-53311"
 
 PDFM_DISP_CRACK="${BASE_PATH}/prl_disp_service"
 PDFM_DISP_DST="${PDFM_DIR}/Contents/MacOS/Parallels Service.app/Contents/MacOS/prl_disp_service"
@@ -20,7 +20,8 @@ PDFM_DISP_ENT="${BASE_PATH}/ParallelsService.entitlements"
 LICENSE_FILE="${BASE_PATH}/licenses.json"
 LICENSE_DST="/Library/Preferences/Parallels/licenses.json"
 
-PDFM_DISP_HASH="c45b432ed90b55ffef6ae9042f3ca162887d1a21581ae1f200248789d566e060"
+PDFM_DISP_ORIGIN_HASH="6bb637a2bfe289c6bd27ac63fd382b03587fb3b51547b627c8bdc9c5bd3684ba"
+PDFM_DISP_HASH="0942b5aaf9f3a2d742df5c2d87200133b4cdf739bbb39ae6e7119b57136e6ed7"
 LICENSE_HASH="ac735f3ee7ac815539f07e68561baceda858cf7ac5887feae863f10a60db3d79"
 
 # read location from parallels-desktop.loc
@@ -43,6 +44,15 @@ if [ "${PDFM_VER}" != "${VERSION_1}-${VERSION_2}" ]; then
   echo -e "${COLOR_ERR}[-] This crack is for ${PDFM_VER}, but you installed is ${INSTALL_VER}.${NOCOLOR}"
   echo "    Download from here: https://download.parallels.com/desktop/v18/${PDFM_VER}/ParallelsDesktop-${PDFM_VER}.dmg"
   exit 2
+fi
+
+# check original prl_disp_service hash
+FILE_HASH=$(shasum -a 256 -b "${PDFM_DISP_DST}" | awk '{print $1}')
+if [ "${FILE_HASH}" != "${PDFM_DISP_ORIGIN_HASH}" ]; then
+  echo -e "${COLOR_ERR}[-] ${FILE_HASH} != ${PDFM_DISP_ORIGIN_HASH}${NOCOLOR}"
+  echo -e "${COLOR_ERR}[-] verify original file (prl_disp_service) hash error.${NOCOLOR}"
+  echo -e "${COLOR_ERR}[-] file has been modified, maybe already cracked.${NOCOLOR}"
+  exit 3
 fi
 
 # check prl_disp_service hash
@@ -74,8 +84,14 @@ fi
 if pgrep -x "prl_disp_service" &> /dev/null; then
   echo -e "${COLOR_INFO}[*] Stop Parallels Desktop${NOCOLOR}"
   pkill -9 prl_client_app &>/dev/null
-  pkill -9 prl_disp_service &>/dev/null
+  # ensure prl_disp_service stop
+  "${PDFM_DIR}/Contents/MacOS/Parallels Service" service_stop &>/dev/null
+  sleep 1
   launchctl stop /Library/LaunchDaemons/com.parallels.desktop.launchdaemon.plist &>/dev/null
+  sleep 1
+  pkill -9 prl_disp_service &>/dev/null
+  sleep 1
+  rm -f "/var/run/prl_*"
 fi
 
 echo -e "${COLOR_INFO}[*] Copy prl_disp_service${NOCOLOR}"
@@ -138,7 +154,6 @@ if ! pgrep -x "prl_disp_service" &>/dev/null; then
 fi
 
 VALID_INFO="License: state='valid' restricted='false'"
-
 "${PDFM_DIR}/Contents/MacOS/prlsrvctl" info | grep "${VALID_INFO}" &>/dev/null
 if [ $? != 0 ]; then
   echo -e "${COLOR_ERR}[x] Crack fail, please retry it.${NOCOLOR}"

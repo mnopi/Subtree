@@ -1,6 +1,6 @@
 # Parallels Desktop Crack
 
-Crack for Parallels Desktop 18.0.3 53079
+Crack for Parallels Desktop 18.1.0 53311
 
 - [x] Support Intel
 - [x] Support Apple Silicon (M1 & M2)
@@ -11,7 +11,7 @@ Crack for Parallels Desktop 18.0.3 53079
 
 1. Install Parallels Desktop.
 
-    https://download.parallels.com/desktop/v18/18.0.3-53079/ParallelsDesktop-18.0.3-53079.dmg
+    https://download.parallels.com/desktop/v18/18.1.0-53311/ParallelsDesktop-18.1.0-53311.dmg
 
 2. Exit parallels account.
 
