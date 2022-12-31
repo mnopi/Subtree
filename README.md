@@ -44,3 +44,4 @@ brew install qemu bash coreutils grep jq python@3.10 cdrtools gnu-sed spice-gtk 
 git subtree add --prefix=rush-cli  https://github.com/DannyBen/rush-cli master
 git subtree add --prefix=rush-repo  https://github.com/DannyBen/rush-repo master
 git subtree add --prefix=spicetify-cli https://github.com/spicetify/spicetify-cli.git master
+git subtree add --prefix=spicetify-marketplace https://github.com/spicetify/spicetify-marketplace.git main
