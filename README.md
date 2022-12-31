@@ -34,7 +34,10 @@ git subtree add --prefix=bootstrap  https://github.com/DannyBen/bootstrap master
 git subtree add --prefix=completely  https://github.com/DannyBen/completely master
 git subtree add --prefix=git-changelog  https://github.com/DannyBen/git-changelog master
 git subtree add --prefix=iFakeLocation https://github.com/master131/iFakeLocation.git master
+curl https://download.visualstudio.microsoft.com/download/pr/a93ff2f8-c9f6-41d9-ac15-1b96e77f111e/5296b688fcb69e34eb2c6d05a915ee71/dotnet-sdk-6.0.404-osx-x64.pkg
+
 git subtree add --prefix=kojo  https://github.com/DannyBen/kojo master
 git subtree add --prefix=opcode https://github.com/DannyBen/opcode.git master
+git subtree add --prefix=quickemu https://github.com/wimpysworld/quickemu
 git subtree add --prefix=rush-cli  https://github.com/DannyBen/rush-cli master
 git subtree add --prefix=rush-repo  https://github.com/DannyBen/rush-repo master
