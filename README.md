@@ -33,6 +33,7 @@ git subtree add --prefix=bashly  https://github.com/DannyBen/bashly master
 git subtree add --prefix=bootstrap  https://github.com/DannyBen/bootstrap master
 git subtree add --prefix=completely  https://github.com/DannyBen/completely master
 git subtree add --prefix=git-changelog  https://github.com/DannyBen/git-changelog master
+git subtree add --prefix=iFakeLocation https://github.com/master131/iFakeLocation.git master
 git subtree add --prefix=kojo  https://github.com/DannyBen/kojo master
 git subtree add --prefix=opcode https://github.com/DannyBen/opcode.git master
 git subtree add --prefix=rush-cli  https://github.com/DannyBen/rush-cli master
