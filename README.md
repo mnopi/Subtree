@@ -38,6 +38,6 @@ curl https://download.visualstudio.microsoft.com/download/pr/a93ff2f8-c9f6-41d9-
 
 git subtree add --prefix=kojo  https://github.com/DannyBen/kojo master
 git subtree add --prefix=opcode https://github.com/DannyBen/opcode.git master
-git subtree add --prefix=quickemu https://github.com/wimpysworld/quickemu
+git subtree add --prefix=quickemu https://github.com/wimpysworld/quickemu master
 git subtree add --prefix=rush-cli  https://github.com/DannyBen/rush-cli master
 git subtree add --prefix=rush-repo  https://github.com/DannyBen/rush-repo master
