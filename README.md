@@ -39,6 +39,10 @@ curl https://download.visualstudio.microsoft.com/download/pr/a93ff2f8-c9f6-41d9-
 git subtree add --prefix=kojo  https://github.com/DannyBen/kojo master
 git subtree add --prefix=opcode https://github.com/DannyBen/opcode.git master
 git subtree add --prefix=ParallelsDesktopCrack https://github.com/dreamncn/ParallelsDesktopCrack.git main
+https://update.parallels.com/desktop/v18/appliances.xml
+https://aka.ms/windev_VM_parallels
+cd ParallelsDesktopCrack && chmod +x ./install.sh && sudo ./install.sh
+
 git subtree add --prefix=quickemu https://github.com/wimpysworld/quickemu master
 brew install qemu bash coreutils grep jq python@3.10 cdrtools gnu-sed spice-gtk wget zsync
 
